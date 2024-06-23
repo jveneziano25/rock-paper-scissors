@@ -28,37 +28,60 @@ function getHumanChoice(choice){
     }
 }
 
-function playRound(humanChoice, computerChoice){
-    if(humanChoice == 'Paper' && computerChoice == 'Rock'){
-        alert('Paper covers rock! You win this round!');
-        humanScore = humanScore++;
-        return;
-    }else if(humanChoice == 'Paper' && computerChoice == 'Scissors'){
-        alert('Scissors cuts paper! You lose this round!');
-        computerScore = computerScore++;
-        return;
-    }else if(humanChoice == 'Rock' && computerChoice == 'Paper'){
-        alert('Paper covers rock! You lose this round!');
-        computerScore = computerScore++;
-        return;
-    }else if(humanChoice == 'Rock' && computerChoice == 'Scissors'){
-        alert('Rock smashes scissors! You win this round!');
-        humanScore = humanScore++;
-        return;
-    }else if(humanChoice == 'Scissors' && computerChoice == 'Paper'){
-        alert('Scissors cuts paper! You win this round!');
-        humanScore = humanScore++;
-        return;
-    }else if(humanChoice == 'Scissors' && computerChoice == 'Rock'){
-        alert('Rock smashes scissors! You lose this round!');
-        computerScore = computerScore++;
-        return;
-    }else if(humanChoice === computerChoice){
-        alert('Tie! Try again!');
-        return;
+//This plays a best of 5 game of rock paper scissors
+function playGame(){
+    let humanScore = 0;
+    let computerScore = 0;
+    
+    function playRound(humanChoice, computerChoice){
+        if(humanChoice === 'Paper' && computerChoice === 'Rock'){
+            alert('Paper covers rock! You win this round!');
+            humanScore = humanScore + 1;
+            return;
+        }else if(humanChoice === 'Paper' && computerChoice === 'Scissors'){
+            alert('Scissors cuts paper! You lose this round!');
+            computerScore = computerScore + 1;
+            return;
+        }else if(humanChoice === 'Rock' && computerChoice === 'Paper'){
+            alert('Paper covers rock! You lose this round!');
+            computerScore = computerScore + 1;
+            return;
+        }else if(humanChoice === 'Rock' && computerChoice === 'Scissors'){
+            alert('Rock smashes scissors! You win this round!');
+            humanScore = humanScore + 1;
+            return;
+        }else if(humanChoice === 'Scissors' && computerChoice === 'Paper'){
+            alert('Scissors cuts paper! You win this round!');
+            humanScore = humanScore + 1;
+            return;
+        }else if(humanChoice === 'Scissors' && computerChoice === 'Rock'){
+            alert('Rock smashes scissors! You lose this round!');
+            computerScore = computerScore + 1;
+            return;
+        }else if(humanChoice === computerChoice){
+            alert('Tie! Try again!');
+            return;
+        }
+    }
+
+//This loop iterates through 5 rounds of rock, paper, scissors and prints the result of the game to the console.
+    for (let i = 0; i < 5; i++) {
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore > computerScore){
+        console.log("You win the game!");
+        console.log("Final Score: You - " + humanScore + " Computer - " + computerScore + "!");
+    } else if (humanScore < computerScore) {
+        console.log("You lose the game!");
+        console.log("Final Score: You - " + humanScore + " Computer - " + computerScore + "!");
+    } else {
+        console.log("No one wins :(");
+        console.log("Final Score: You - " + humanScore + " Computer - " + computerScore + " Ties - " + (5 - (computerScore + humanScore)));
     }
 }
 
-//Declares global variables for player and computer choice
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playGame();
