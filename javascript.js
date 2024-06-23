@@ -73,14 +73,14 @@ function playGame(){
     }
 
     if (humanScore > computerScore){
-        console.log("You win the game!");
-        console.log("Final Score: You - " + humanScore + " Computer - " + computerScore + "!");
+        alert("You win the game!");
+        alert("Final Score: You - " + humanScore + " Computer - " + computerScore + "!");
     } else if (humanScore < computerScore) {
-        console.log("You lose the game!");
-        console.log("Final Score: You - " + humanScore + " Computer - " + computerScore + "!");
+        alert("You lose the game!");
+        alert("Final Score: You - " + humanScore + " Computer - " + computerScore + "!");
     } else {
-        console.log("No one wins :(");
-        console.log("Final Score: You - " + humanScore + " Computer - " + computerScore + " Ties - " + (5 - (computerScore + humanScore)));
+        alert("No one wins :(");
+        alert("Final Score: You - " + humanScore + " Computer - " + computerScore + " Ties - " + (5 - (computerScore + humanScore)));
     }
 }
 
