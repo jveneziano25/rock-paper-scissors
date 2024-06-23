@@ -27,3 +27,38 @@ function getHumanChoice(choice){
         return 'Scissors';
     }
 }
+
+function playRound(humanChoice, computerChoice){
+    if(humanChoice == 'Paper' && computerChoice == 'Rock'){
+        alert('Paper covers rock! You win this round!');
+        humanScore = humanScore++;
+        return;
+    }else if(humanChoice == 'Paper' && computerChoice == 'Scissors'){
+        alert('Scissors cuts paper! You lose this round!');
+        computerScore = computerScore++;
+        return;
+    }else if(humanChoice == 'Rock' && computerChoice == 'Paper'){
+        alert('Paper covers rock! You lose this round!');
+        computerScore = computerScore++;
+        return;
+    }else if(humanChoice == 'Rock' && computerChoice == 'Scissors'){
+        alert('Rock smashes scissors! You win this round!');
+        humanScore = humanScore++;
+        return;
+    }else if(humanChoice == 'Scissors' && computerChoice == 'Paper'){
+        alert('Scissors cuts paper! You win this round!');
+        humanScore = humanScore++;
+        return;
+    }else if(humanChoice == 'Scissors' && computerChoice == 'Rock'){
+        alert('Rock smashes scissors! You lose this round!');
+        computerScore = computerScore++;
+        return;
+    }else if(humanChoice === computerChoice){
+        alert('Tie! Try again!');
+        return;
+    }
+}
+
+//Declares global variables for player and computer choice
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
